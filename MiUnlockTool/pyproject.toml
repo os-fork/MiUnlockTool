@@ -1,5 +1,5 @@
 [project]
-version = "1.7.3"
+version = "1.7.4"
 name = "miunlock"
 description = "Retrieve Xiaomi encryptData(token) to unlock bootloader"
 authors = [{name = "offici5l"}]
@@ -17,7 +17,8 @@ classifiers = [
 requires-python = ">=3.7"
 
 dependencies = [
-    "migate >= 1.1.5"
+    "migate >= 1.1.11",
+    "pyaes",
 ]
 
 [project.urls]

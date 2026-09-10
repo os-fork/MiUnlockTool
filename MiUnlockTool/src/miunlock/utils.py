@@ -4,8 +4,15 @@ import hmac
 import binascii
 from base64 import b64encode, b64decode
 import requests
+import pyaes
 
-from miunlock.aes import aes_cbc_encrypt, aes_cbc_decrypt
+def aes_cbc_encrypt(plaintext, key, iv):
+    mode = pyaes.AESModeOfOperationCBC(key, iv=iv)
+    return b"".join(mode.encrypt(plaintext[i:i+16]) for i in range(0, len(plaintext), 16))
+
+def aes_cbc_decrypt(ciphertext, key, iv):
+    mode = pyaes.AESModeOfOperationCBC(key, iv=iv)
+    return b"".join(mode.decrypt(ciphertext[i:i+16]) for i in range(0, len(ciphertext), 16))
 
 def _send(path, params_raw, domain, ssecurity, cookies):
 

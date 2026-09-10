@@ -235,3 +235,7 @@ fixes, improvements, and additions:
 ### Version 1.7.3:
 
 - minor improvements: support `python -m miunlock` when entry point is unavailable
+
+### Version 1.7.4:
+
+- improvements (added `pyaes` dependency)

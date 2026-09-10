@@ -1,7 +1,7 @@
 import subprocess
 import threading
 import time
-from miunlock.config import console
+from miunlock.system import console, WHITE, RED, ORANGE
 
 def read_stream(stream, output_list, process, restart_flag, status):
     try:
@@ -10,7 +10,7 @@ def read_stream(stream, output_list, process, restart_flag, status):
             output_list.append(line)
             if "No permission" in line or "< waiting for any device >" in line:
                 process.terminate()
-                status.update(f'[orange]< waiting for any device >[/orange]')
+                status.update(f'[{ORANGE}]< waiting for any device >[/]')
                 restart_flag[0] = True
                 return
     finally:
@@ -18,7 +18,7 @@ def read_stream(stream, output_list, process, restart_flag, status):
 
 def CheckB(cmd, var_name, *fastboot_args):
 
-    with console.status("[white]Initializing...[/white]", spinner="bouncingBar") as status:
+    with console.status(f"[{WHITE}]Initializing...[/]", spinner="bouncingBar") as status:
 
         while True:
 
@@ -58,14 +58,14 @@ def CheckB(cmd, var_name, *fastboot_args):
             try:
                 process.wait()
             except subprocess.SubprocessError as e:
-                console.print(f"\n[red]Error while executing process: {e}[/red]\n")
+                console.print(f"\n[{RED}]Error while executing process: {e}[/]\n")
                 return None
 
             if restart_flag[0]:
                 time.sleep(2)
                 continue
 
-            status.update(f"[white]Fetching '{var_name}' — please wait...[/white]")
+            status.update(f"[{WHITE}]Fetching '{var_name}' — please wait...[/]")
             break
 
 

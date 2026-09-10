@@ -1,13 +1,13 @@
 from migate import get_passtoken, get_service, get_region, get_dataCenterZone
 
 from miunlock.unlock import unlock_device
-from miunlock.config import get_fastboot
-from miunlock.config import console
+from miunlock.fastboot import get_fastboot
+from miunlock.system import console, GREEN, WHITE, ORANGE
 
 def main():
 
     fastboot_cmd = get_fastboot()
-    
+
     param = {"sid": 'unlockApi'}
     param["checkSafeAddress"] = True
 
@@ -24,7 +24,7 @@ def main():
         userId = passToken['userId']
         Zone = get_dataCenterZone(userId)
     else:
-        console.print(f"\nAccount Region: {region}", style="green")
+        console.print(f"\n[{GREEN}]Account Region: {region}[/]")
         if region == "CN":
             Zone = "China"
         elif region == "IN":            
@@ -39,8 +39,8 @@ def main():
     if Zone is None:
         Zone = get_dataCenterZone()
     else:
-        console.print(f"\ndataCenterZone: {Zone}", style="green")
-        user_input = console.input("\n[white](Enter to continue, [orange]m[/orange] to change dataCenterZone)[/white][white] > [/white]").strip().lower()  
+        console.print(f"\n[{GREEN}]dataCenterZone: {Zone}[/]")
+        user_input = console.input(f"\n[{WHITE}](Enter to continue, [{ORANGE}]m[/] to change dataCenterZone) > [/]").strip().lower()
         if user_input == "m":  
             Zone = get_dataCenterZone()   
 
