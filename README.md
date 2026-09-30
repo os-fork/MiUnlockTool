@@ -10,6 +10,7 @@
 
 [![Version](https://img.shields.io/pypi/v/miunlock?label=Version&labelColor=black&color=brightgreen)](https://pypi.org/project/miunlock/)
 [![Changelog](https://img.shields.io/badge/Changelog-blue?style=flat&logoColor=white)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 ---
 
@@ -47,16 +48,5 @@ miunlock
 
 ❓ [FAQ & Troubleshooting](FAQ.md)
 
----
-
-🤝 [Contributing](CONTRIBUTING.md)
-
-<a href="https://github.com/MiForge/MiUnlockTool/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=MiForge/MiUnlockTool" />
-</a>
-
----
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 </div>
